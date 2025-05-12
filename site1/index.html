@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gy campos</title>
+  <style>
+    /* Estilo geral */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #000000;
+      color: #f0e5e5;
+    }
+
+    header {
+      background-color: hsl(17, 62%, 54%);
+      color: black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #d16ba5;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    form {
+      background-color: #000000;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000000;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0 20px;
+      border: 1px solid #ffe6e6;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #d16ba5;
+      color: rgb(253, 242, 242);
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #c05d99;
+    }
+
+    footer {
+      background-color: #d16ba5;
+      color: rgb(252, 252, 252);
+      text-align: center;
+      padding: 15px;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Salão Bela Vida</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#agendamento">Agendar</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Início -->
+  <section id="inicio">
+    <h2>Bem-vindo ao Gy campos!</h2>
+    <p>Realce sua beleza com nossos profissionais. Faça seu agendamento online de forma rápida e segura!</p>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos">
+    <h2>Nossos Serviços</h2>
+    <ul>
+      <li>Corte Feminino</li>
+      <li>Escova e Hidratação</li>
+      <li>Coloração e Mechas</li>
+      <li>Manicure e Pedicure</li>
+      <li>Sobrancelhas</li>
+    </ul>
+  </section>
+
+  <!-- Agendamento -->
+  <section id="agendamento">
+    <h2>Agende um Horário</h2>
+    <form id="formAgendamento">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required />
+
+      <label for="servico">Serviço Desejado:</label>
+      <select id="servico" name="servico" required>
+        <option value="">-- Selecione --</option>
+        <option value="corte">Corte de Cabelo</option>
+        <option value="escova">Escova e Hidratação</option>
+        <option value="coloracao">Coloração</option>
+        <option value="unhas">Manicure e Pedicure</option>
+        <option value="sobrancelha">Sobrancelha</option>
+        <option value="maquiagem">Maquiagem</option>
+      </select>
+
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" required />
+
+      <label for="hora">Horário:</label>
+      <input type="time" id="hora" name="hora" required />
+
+      <input type="submit" value="Agendar" />
+    </form>
+    <p id="mensagem" style="color: green; font-weight: bold; display: none;">Agendamento enviado com sucesso!</p>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <p>WhatsApp: (48) 99158-7246</p>
+    <p>Endereço: Rua Maria Salete De Oliveira, 282</p>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 gy campos. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("formAgendamento").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Simular envio
+      const nome = document.getElementById("nome").value;
+      const mensagem = document.getElementById("mensagem");
+
+      // Exibe mensagem de sucesso
+      mensagem.style.display = "block";
+      mensagem.textContent = "Obrigado, " + nome + "! Seu agendamento foi enviado com sucesso.";
+
+      // Limpa o formulário
+      this.reset();
+
+      // Esconde a mensagem após 5 segundos
+      setTimeout(() => {
+        mensagem.style.display = "none";
+      }, 5000);
+    });
+  </script>
+  <!-- Botão de WhatsApp -->
+<a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Salão%20Bela%20Vida." 
+   target="_blank" 
+   id="whatsappBtn" 
+   title="Fale conosco pelo WhatsApp">
+  💬
+</a>
+    <style>
+        /* Botão WhatsApp */
+#whatsappBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+  z-index: 1000;
+}
+#whatsappBtn:hover {
+  background-color: #1ebe5d;
+}
+    </style>
+
+</body>
+</html>
